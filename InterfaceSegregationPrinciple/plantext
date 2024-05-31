@@ -1,0 +1,50 @@
+@startuml
+
+interface StudentInterface {
+    + registerCourse()
+    + viewGrades()
+}
+
+interface WorkerInterface {
+    + setCourseRegistrationPeriod()
+    + setGradeViewingPeriod()
+}
+
+interface ProfessorInterface {
+    + registerGrades()
+    + viewAttendance()
+}
+
+class SchoolManage {
+    + registerCourse()
+    + viewGrades()
+    + registerGrades()
+    + viewAttendance()
+    + setCourseRegistrationPeriod()
+    + setGradeViewingPeriod()
+}
+
+class Student {
+    + registerCourse()
+    + viewGrades()
+}
+
+class Worker {
+    + setCourseRegistrationPeriod()
+    + setGradeViewingPeriod()
+}
+
+class Professor {
+    + registerGrades()
+    + viewAttendance()
+}
+
+Student ..> SchoolManage : uses
+Worker ..> SchoolManage : uses
+Professor --|> SchoolManage
+
+Student ..|> StudentInterface
+Worker ..|> WorkerInterface
+Professor ..|> ProfessorInterface
+
+@enduml
